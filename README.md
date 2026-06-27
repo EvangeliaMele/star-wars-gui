@@ -144,7 +144,7 @@ Parts of this project were built with the assistance of **Claude (Sonnet 4.6)** 
 - `src/utils/` — `common-variables.ts`, `api-functions.ts`, `common-functions.ts`
 - `src/store/` — 3 Zustand stores (favourites, characters, films)
 
-The AI was used to discuss some of the initial project setup and improve design by describing existing components and desired outcomes.
+The AI was used to discuss some of the initial project setup and improve design by describing existing components and desired outcomes. The overall project structure and coding conventions were inspired by and follow the same patterns used in previous similar projects I have worked on.
 
 ---
 
