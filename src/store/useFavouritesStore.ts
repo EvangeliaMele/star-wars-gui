@@ -14,14 +14,13 @@ const useFavouritesStore = create<types.FavouritesStore>()(
         set((state) => ({
           favourites: state.favourites.filter((f) => f.url !== url),
         })),
-      isFavourite: (url: string) =>
-        get().favourites.some((f) => f.url === url),
+      isFavourite: (url: string) => get().favourites.some((f) => f.url === url),
     }),
     {
       name: "star-wars-favourites-storage",
       storage: createJSONStorage(() => localStorage),
-    }
-  )
+    },
+  ),
 );
 
 export default useFavouritesStore;

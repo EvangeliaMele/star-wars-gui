@@ -7,7 +7,7 @@ export const extractIdFromUrl = (url: string): string => {
 /* Debounce */
 export const debounce = <T extends (...args: Parameters<T>) => void>(
   fn: T,
-  delay: number
+  delay: number,
 ): ((...args: Parameters<T>) => void) => {
   let timer: ReturnType<typeof setTimeout>;
   return (...args: Parameters<T>) => {
@@ -19,7 +19,7 @@ export const debounce = <T extends (...args: Parameters<T>) => void>(
 /* Pagination */
 export const calculateTotalPages = (
   total: number,
-  itemsPerPage: number
+  itemsPerPage: number,
 ): number => {
   return Math.ceil(total / itemsPerPage);
 };
