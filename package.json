@@ -9,6 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@opentelemetry/api": "^1.9.1",
+    "@opentelemetry/exporter-trace-otlp-http": "^0.208.0",
+    "@opentelemetry/resources": "^2.8.0",
+    "@opentelemetry/sdk-trace-web": "^2.8.0",
+    "@opentelemetry/semantic-conventions": "^1.41.1",
     "next": "^15.5.19",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
