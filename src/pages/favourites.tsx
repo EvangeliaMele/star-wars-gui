@@ -2,9 +2,16 @@ import { Layout, PageTitle } from "@/Components/Common";
 import FavouriteCard from "@/Components/Favourites/FavouriteCard";
 import useFavouritesStore from "@/store/useFavouritesStore";
 import * as types from "@/types/types";
+import { useEffect } from "react";
+import { trackEvent } from "@/utils/tracking";
 
 const Favourites = () => {
   const favourites = useFavouritesStore((state) => state.favourites);
+
+  // Track page visit
+  useEffect(() => {
+  trackEvent("page_visited", { page: "favourites" });
+}, []);
 
   return (
     <Layout>

@@ -7,6 +7,7 @@ import useCharactersStore from "@/store/useCharactersStore";
 import * as apiFunctions from "@/utils/api-functions";
 import { debounce, calculateTotalPages } from "@/utils/common-functions";
 import { ITEMS_PER_PAGE } from "@/utils/common-variables";
+import { trackEvent } from "@/utils/tracking";
 
 const Characters = () => {
   const [characters, setCharacters] = useState<types.Character[]>([]);
@@ -45,6 +46,11 @@ const Characters = () => {
     }, 400),
     [fetchCharacters],
   );
+
+  // Track page visit
+  useEffect(() => {
+  trackEvent("page_visited", { page: "characters" });
+}, []);
 
   useEffect(() => {
     debouncedFetch(currentPage, search);

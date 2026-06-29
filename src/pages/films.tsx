@@ -7,6 +7,7 @@ import useFilmsStore from "@/store/useFilmsStore";
 import * as apiFunctions from "@/utils/api-functions";
 import { debounce, calculateTotalPages } from "@/utils/common-functions";
 import { ITEMS_PER_PAGE } from "@/utils/common-variables";
+import { trackEvent } from "@/utils/tracking";
 
 const Films = () => {
   const [films, setFilms] = useState<types.Film[]>([]);
@@ -42,6 +43,11 @@ const Films = () => {
     }, 400),
     [fetchFilms],
   );
+
+  // Track page visit
+  useEffect(() => {
+  trackEvent("page_visited", { page: "films" });
+}, []);
 
   useEffect(() => {
     debouncedFetch(currentPage, search);

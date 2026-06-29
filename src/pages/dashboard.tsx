@@ -5,6 +5,7 @@ import Image from "next/image";
 import useFavouritesStore from "@/store/useFavouritesStore";
 import * as apiFunctions from "@/utils/api-functions";
 import WelcomeModal from "@/Components/Dashboard/WelcomeModal";
+import { trackEvent } from "@/utils/tracking";
 
 const Dashboard = () => {
   // Fetch only counts on mount because full data loads on respective pages
@@ -13,6 +14,11 @@ const Dashboard = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const favourites = useFavouritesStore((state) => state.favourites);
+
+  // Track page visit
+  useEffect(() => {
+  trackEvent("page_visited", { page: "dashboard" });
+}, []);
 
   useEffect(() => {
     const fetchCounts = async () => {

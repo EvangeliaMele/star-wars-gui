@@ -5,6 +5,7 @@ import { Layout, PageTitle, Loading, Alert } from "@/Components/Common";
 import useFavouritesStore from "@/store/useFavouritesStore";
 import * as apiFunctions from "@/utils/api-functions";
 import { capitalize, formatDate } from "@/utils/common-functions";
+import { trackEvent } from "@/utils/tracking";
 
 const DetailPage = () => {
   const router = useRouter();
@@ -19,6 +20,12 @@ const DetailPage = () => {
   );
   const addFavourite = useFavouritesStore((state) => state.addFavourite);
   const removeFavourite = useFavouritesStore((state) => state.removeFavourite);
+
+  // Track page visit
+  useEffect(() => {
+  if (!type || !id) return;
+  trackEvent("page_visited", { page: `detail_${type}_${id}` });
+}, [type, id]);
 
   useEffect(() => {
     if (!router.isReady || !type || !id) return;
