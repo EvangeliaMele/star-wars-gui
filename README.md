@@ -148,6 +148,33 @@ The AI was used to discuss some of the initial project setup and improve design 
 
 ---
 
+## EXTRA: User Engagement Tracking
+This project includes basic user engagement tracking using a lightweight custom implementation
+### How it works
+- Each page fires a `trackEvent("page_visited", { page: "..." })` call on mount
+- The `_app.tsx` tracks `page_transition` events on every route change
+- Events are built as OpenTelemetry-shaped payloads and sent to a Next.js API route (`/api/track`)
+- The API route forwards them to **Grafana Loki** — a log aggregation system used for monitoring and visualization
+- No OTel SDK is used on the client — just a lightweight custom implementation
+### What is tracked
+| Event | Description |
+|---|---|
+| `page_visited` | Fired when a user visits a page |
+| `page_transition` | Fired when a user navigates between pages |
+### Grafana Visualization
+Page visits are visualized in **Grafana** using the following LogQL query:
+```logql
+sum by (page) (
+  count_over_time(
+    {service="star-wars-gui", event_type="page_visited"} | json [$__range]
+  )
+)
+```
+![Grafana Tracking](public/images/grafana.png)
+> **NOTE**: You need your own Grafana Loki credentials. Add them to your `.env` file — see the Environment Variables section at the bottom of this README.
+
+---
+
 ## Environment Variables
 
 Create a `.env` file in the root directory with the following:
@@ -155,4 +182,9 @@ Create a `.env` file in the root directory with the following:
 ```env
 NEXT_PUBLIC_SWAPI_URL=https://swapi.info/api
 NEXT_PUBLIC_PORT=3000
+
+# Grafana Loki — for user engagement tracking
+# Get your credentials from Grafana Cloud
+LOKI_URL=your_loki_url_here
+LOKI_AUTH=your_loki_auth_here
 ```
