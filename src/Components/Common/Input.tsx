@@ -13,8 +13,8 @@ const Input = ({
   const baseStyles =
     "block rounded-md border border-white/20 bg-slate-900/60 text-white placeholder-white/30 shadow-sm focus:ring-red-400 focus:border-red-400 focus:outline-none px-2";
 
-    // Calls both our custom handler and the native input handler if provided
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  // Calls both our custom handler and the native input handler if provided
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     onValueChange?.(e.target.value);
     onChange?.(e);
   };

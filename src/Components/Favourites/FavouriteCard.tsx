@@ -52,10 +52,10 @@ const FavouriteCard = ({ favourite }: FavouriteCardProps) => {
             ★
           </button>
         </div>
-        
+
         <div className="mt-4 pt-4 border-t border-white/5 flex justify-end">
           <span className="text-white/20 group-hover:text-red-500 text-sm transition-all duration-300 group-hover:translate-x-1 transform">
-            View details 
+            View details
           </span>
         </div>
       </div>

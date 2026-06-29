@@ -150,7 +150,7 @@ const DetailPage = () => {
                       {getTitle()}
                     </h1>
                   </div>
-                  
+
                   <button
                     onClick={handleFavourite}
                     className={`

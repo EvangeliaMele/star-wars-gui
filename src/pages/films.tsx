@@ -40,7 +40,7 @@ const Films = () => {
     debounce((page: number, searchTerm: string) => {
       fetchFilms(page, searchTerm);
     }, 400),
-    [fetchFilms]
+    [fetchFilms],
   );
 
   useEffect(() => {
@@ -57,7 +57,7 @@ const Films = () => {
   };
 
   return (
-   <Layout backgroundImage="/images/empty-favourites.jpg">
+    <Layout backgroundImage="/images/empty-favourites.jpg">
       <PageTitle title="Films" />
       <div className="pt-8">
         <div className="flex justify-center w-full">
@@ -93,20 +93,18 @@ const Films = () => {
               /* Empty state */
               <div className="flex flex-col items-center justify-center py-16 gap-3">
                 <p className="text-white/40 text-sm">
-                  No films found for &quot;{search}&quot;. Have left us for other galaxy mate!
+                  No films found for &quot;{search}&quot;. Have left us for
+                  other galaxy mate!
                 </p>
               </div>
             ) : (
               <>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   {films.map((film) => (
-                    <FilmCard
-                      key={film.url}
-                      film={film}
-                    />
+                    <FilmCard key={film.url} film={film} />
                   ))}
                 </div>
-                
+
                 <Pagination
                   currentPage={currentPage}
                   totalPages={totalPages}
@@ -122,4 +120,3 @@ const Films = () => {
 };
 
 export default Films;
-

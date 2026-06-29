@@ -51,7 +51,7 @@ const StatsCard = ({
       </Link>
     );
   }
-  
+
   return (
     <Link href={href}>
       <div className="flex items-center justify-between py-5 px-6 cursor-pointer group border-l-2 border-red-500/30 hover:border-red-500 transition-all duration-300">

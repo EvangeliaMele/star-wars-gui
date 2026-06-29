@@ -4,8 +4,8 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
- <link rel="icon" href="/images/lightsaber.png" />
-</Head>
+        <link rel="icon" href="/images/lightsaber.png" />
+      </Head>
       <body className="antialiased">
         <Main />
         <NextScript />

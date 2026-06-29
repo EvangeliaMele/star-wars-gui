@@ -10,7 +10,6 @@ const NotFound: NextPageWithDisableLayout = () => {
       />
       <div className="absolute inset-0 bg-black/70 z-10" />
       <div className="relative z-20 flex flex-col items-center text-center px-6 mt-10">
-
         <p className="text-red-500 text-sm font-semibold tracking-widest uppercase mb-3">
           Error 404
         </p>
