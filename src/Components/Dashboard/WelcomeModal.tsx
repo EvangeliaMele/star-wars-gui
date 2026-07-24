@@ -41,7 +41,7 @@ const WelcomeModal = () => {
 
         <div className="px-8 py-6">
           <p className="text-red-500 text-xs font-semibold tracking-widest mb-2">
-            In a galaxy far, far away... a company called Up Hellas was
+            In a galaxy far, far away... a company was
             searching for a developer strong enough to join their ranks
           </p>
 
