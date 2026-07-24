@@ -29,7 +29,7 @@ const WelcomeModal = () => {
       <div className="relative z-10 w-full max-w-lg bg-slate-900/90 backdrop-blur-md border border-white/10 rounded-2xl overflow-hidden">
         <div className="relative h-56 w-full overflow-hidden">
           <Image
-            src="/images/welcome-baby-yoda.png"
+            src="/images/welcome-yoda.png"
             alt="Welcome"
             fill
             className="object-cover opacity-80"
